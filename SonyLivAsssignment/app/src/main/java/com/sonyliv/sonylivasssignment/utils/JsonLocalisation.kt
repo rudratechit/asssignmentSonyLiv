@@ -1,13 +1,12 @@
 package com.sonyliv.sonylivasssignment.utils
 
-import android.content.Context
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.FileInputStream
 import java.lang.Exception
-import java.util.*
+import java.util.Locale
 
-class JsonLocalisation {
+class JsonLocalisation private constructor() {
 
     private var language = "en"
     private var jsonData = JSONObject()
@@ -17,18 +16,20 @@ class JsonLocalisation {
         private var mInstance: JsonLocalisation? = null
 
         fun getInstance(): JsonLocalisation? {
-            if (Companion.mInstance == null) {
-                Companion.mInstance = JsonLocalisation()
-                Companion.mInstance!!.setLanguage(Locale.getDefault().language)
+            if (mInstance == null) {
+                mInstance = JsonLocalisation()
+                mInstance!!.setLanguage(Locale.getDefault().language)
             }
-            return Companion.mInstance
+            return mInstance
         }
     }
 
-    private fun JsonLocalization() {}
-
     fun setLanguage(language: String) {
         this.language = language
+    }
+
+    fun getLanguage(): String {
+        return language
     }
 
     fun loadFromData(jsonData: JSONObject) {
@@ -43,11 +44,11 @@ class JsonLocalisation {
         }
     }
 
-    fun loadFromFileName(context: Context, fileName: String) {
+    fun loadFromFileName(fileName: String) {
         val fis: FileInputStream
         val fileContent: StringBuffer
         try {
-            fis = context.openFileInput(fileName)
+            fis = globalContext.openFileInput(fileName)
             fileContent = StringBuffer("")
             val buffer = ByteArray(1024)
             var n: Int

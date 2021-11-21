@@ -6,13 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etTranslationText"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/hello_world"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnHindiLocale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/locale_hindi"
+        app:layout_constraintTop_toBottomOf="@id/etTranslationText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnEnglishLocale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/locale_english"
+        app:layout_constraintTop_toBottomOf="@id/btnHindiLocale"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnFrenchLocale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/locale_french"
+        app:layout_constraintTop_toBottomOf="@id/btnEnglishLocale"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnMaxicanLocale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/locale_maxican"
+        app:layout_constraintTop_toBottomOf="@id/btnFrenchLocale"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
